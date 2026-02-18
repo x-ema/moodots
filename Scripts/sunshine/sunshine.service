@@ -1,0 +1,13 @@
+[Unit]
+Description=Sunshine game stream host as a service
+After=network-online.target
+
+[Service]
+WorkingDirectory=/usr/bin 
+Type=Simple
+ExecStart=sunshine 
+Restart=always 
+RestartSec=10 
+
+[Install]
+WantedBy=default.target

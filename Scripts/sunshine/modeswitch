@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+if [[ ! -f $HOME/Scripts/sunshine/displays/desktop.conf ]]; then
+  cp $HOME/.config/hypr/monitors.conf $HOME/Scripts/sunshine/displays/desktop.conf
+fi
+
+
+if [[ "$1" -eq "desktop" ]]; then
+  ###----------------------------------------------###
+  ###             Switch to Desktop
+  ###----------------------------------------------###
+  cp $HOME/Scripts/sunshine/displays/desktop.conf $HOME/.config/hypr/monitors.conf
+elif [[ "$1" -eq "laptop" ]]; then
+  ###----------------------------------------------###
+  ###             Switch to Laptop
+  ###----------------------------------------------###
+  if [[ ! -f $HOME/Scripts/sunshine/displays/laptop.conf ]] then
+    echo "MISSING LAPTOP DISPLAY CONFIG"
+    exit
+  fi
+  cp $HOME/Scripts/sunshine/displays/laptop.conf $HOME/.config/hypr/monitors.conf
+elif [[ "$1" -eq "steamdeck" ]]; then
+  ###----------------------------------------------###
+  ###             Switch to steamdeck
+  ###----------------------------------------------###
+  if [[ ! -f $HOME/Scripts/sunshine/displays/steamdeck.conf ]] then
+    echo "MISSING LAPTOP DISPLAY CONFIG"
+    exit
+  fi
+  cp $HOME/Scripts/sunshine/displays/steamdeck.conf $HOME/.config/hypr/monitors.conf
+else
+  echo "Invalid or missing mode switch"
+fi
+

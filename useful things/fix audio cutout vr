@@ -1,0 +1,20 @@
+https://www.reddit.com/r/linux_gaming/comments/18iv272/solved_random_hdmi_audio_dropouts_midgame_pipewire/
+
+
+
+Writing this in case it helps someone else.
+
+TLDR: speech-dispatcher fighting for the same audio output caused the second display audio to glitch.
+
+My PC has two displays, one over DP and the second one over HDMI (TV). I launch games on the second one and use the second display's audio output.
+
+The issue that plagued my gaming is that every few minutes, at random, the HDMI audio seemingly got "renegotiated" resulting in sound disappearing for a couple of seconds and TV displaying its mode banner. The current GPU is RTX 4060 Ti, but the issue was present with my previous GPU as well as across several driver versions. If the audio output wasn't on the second's display HDMI, zero issues.
+
+Tried disabling power saving in snd_had_intel - didn't help, tried stopping pipewire from suspending the output - better, but still frequent, even tried locking GPU clocks to stop P-state from stepping down - didn't really help.
+
+What eventually helped was firing up qpwgraph and noticing in real time that a) dropouts happen when pipewire reconfigures the in/out app streams b) while game was running, "speech dispatcher dummy" was hooked to the same HDMI audio output. On a whim, I deleted the in/out link with the speech dispatcher and played for a few hours completely without audio issues.
+
+What I did: uncommented DisableAutoSpawn in /etc/speech-dispatcher/speechd.conf. That's it, the speech-dispatcher is not starting any more and is not interfering with my games' audio.
+
+Other thoughts: I do think that the issue is caused by some unholy combination of GPU power scaling, audio output suspending/remapping and possibly the TV itself, so I also kept the setting to keep the pipewire sink on IDLE.
+

@@ -1,0 +1,1 @@
+export WAYLAND_DISPLAY=wayland-1 && wayvnc 0.0.0.0 5900
