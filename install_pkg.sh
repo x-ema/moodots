@@ -29,6 +29,7 @@ cd ~/HyDE/Scripts
 paru -S \
   alcom-bin \
   bat \
+  btop \
   corectrl \
   envision-xr-git \
   ethtool \
@@ -43,6 +44,7 @@ paru -S \
   jdk-openjdk \
   jdk11-openjdk \
   jdk17-openjdk \
+  krita \
   lutris \
   mommy \
   monero \
@@ -71,8 +73,23 @@ paru -S \
   wikiman \
   winetricks
 
+flatpak install org.blender.Blender
+flatpak install org.vinegarhq.Sober
+
 ###----------------------------------------------###
 ###     Install some stuff not from the aur
 ###----------------------------------------------###
 
-#KarmaViz
+
+###----------------------------------------------###
+###                   KarmaViz
+###----------------------------------------------###
+#KarmaViz install in /usr/local/KarmaViz
+echo "Installing KarmaViz"
+git clone https://github.com/KarmaTripping/karmaviz.git /usr/local/KarmaViz 
+python -m venv /usr/local/KarmaViz 
+source /usr/local/KarmaViz/bin/activate 
+pip install -r /usr/local/KarmaViz/requirements.txt
+deactivate
+cp $HOME/moodots/KarmaViz/start.sh /usr/local/KarmaViz/start.sh
+cp $HOME/moodots/KarmaViz/karmaviz.desktop /usr/share/applications/karmaviz.desktop

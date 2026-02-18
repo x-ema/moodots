@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=7.15.25
+Type=Application
+Exec=sh /usr/local/Karmaviz/start.sh
+Name[en_US]=Karmaviz
+Name=Karmaviz
+Icon=/usr/local/KarmaViz/karmaviz_icon.png
+Comment=A cutting-edge, GPU-accelerated audio visualizer for Linux with real-time GLSL shader compilation, advanced waveform rendering, and immersive visual effects.
+Categories=Application;Media;Music;Video;
