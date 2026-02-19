@@ -2,6 +2,7 @@
 ###----------------------------------------------###
 ###               Update System
 ###----------------------------------------------###
+echo "Updating System..."
 sudo pacman -Syy
 sudo pacman -Sy archlinux-keyring
 sudo pacman -Syu
@@ -9,23 +10,26 @@ sudo pacman -Syu
 ###----------------------------------------------###
 ###               Install paru
 ###----------------------------------------------###
+echo "Installing paru..."
 sudo pacman -S --needed base-devel git wget curl
 git clone https://aur.archlinux.org/paru.git
-cd paru makepkg -si
+cd paru
+makepkg -si
 cd
 
 ###----------------------------------------------###
-###            Grab and install HyDe
+###            Grab and install HyDE
 ###----------------------------------------------###
-
+echo "Installing HyDE"
 git clone --depth 1 https://github.com/HyDE-Project/HyDE ~/HyDE 
 cd ~/HyDE/Scripts 
 ./install.sh
+cd ~
 
 ###----------------------------------------------###
 ###           Install a bunch of stuff
 ###----------------------------------------------###
-
+echo "Installing packages via paru..."
 paru -S \
   alcom-bin \
   bat \
@@ -73,8 +77,37 @@ paru -S \
   wikiman \
   winetricks
 
+echo "Installing packages via flatpak..."
 flatpak install org.blender.Blender
 flatpak install org.vinegarhq.Sober
+###----------------------------------------------###
+###       Configure what we just installed
+###----------------------------------------------###
+
+#---copy config folder---#
+cp -R $HOME/moodots/config/* $HOME/.config/
+
+#---register sunshine as a service---#
+cp $HOME/moodots/Scripts/sunshine/sunshine.service /usr/lib/systemd/system/sunshine.service
+
+#---Login and start tailscale---#
+sudo tailscale login 
+sudo tailscale up 
+tailscale status
+
+#---update tealdeer's local cache---#
+tldr -u 
+
+#---add arch wiki to wikiman---#
+# Download latest Makefile
+cd $HOME
+curl -L 'https://raw.githubusercontent.com/filiparag/wikiman/master/Makefile' -o 'wikiman-makefile'
+make -f ./wikiman-makefile source-arch source-tldr
+sudo make -f ./wikiman-makefile source-install
+sudo make -f ./wikiman-makefile clean
+rm -rf $HOME/wikiman-makefile
+cd ~
+
 
 ###----------------------------------------------###
 ###     Install some stuff not from the aur
