@@ -28,4 +28,7 @@ ncdu \
 rofi \
 kitty \
 python-pywal \
-eza
+eza \
+starship \
+otf-firamono-nerd \
+ttf-nerd-fonts-symbols 
