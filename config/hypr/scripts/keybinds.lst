@@ -1,0 +1,37 @@
+Close active window -> Super+Q
+Kill hyprland  -> Super+Delete
+Toggle window floating -> Super+W
+Toggle fullscreen -> Alt+Return
+Start hyprlock -> Super+L
+Show logout/power menu -> Super+Backspace
+Launch terminal -> Super+T
+Launch file manager -> Super+E
+Launch text editor -> Super+C
+Launch web browser -> Super+F
+Launch system monitor -> Ctrl+Shift+Escape
+Launch color picker -> Super+Shift+P
+Take a screenshot -> Super+P
+Show app drawer -> Super+A
+Show window switcher -> Super+Tab
+Previous song/media -> Super+Ctrl+0
+Next song/media -> Super+Ctrl+=
+Play/pause song/media -> Super+Ctrl+-
+Move window focus up -> Super+I
+Move window focus down -> Super+K
+Move window focus left  -> Super+J
+Move window focus right -> Super+L
+Focus prevous monitor  -> Super+Ctrl+1
+Focus next monitor  -> Super+Ctrl+2
+Move to prevous workspace -> Super+1
+Move to next workspace  -> Super+2
+Move to prevous workspace (scroll) -> Super+mouse_down
+Move to next workspace (scroll) -> Super+mouse_up
+Move focused window to prevous workspace -> Super+Shift+1
+Move focused window to next workspace -> Super+Shift+2
+Move focused window to prevous workspace silently -> Super+Alt+1
+Move focused window to next workspace silently  -> Super+Alt+2
+Move window (mouse)  -> Super+mouse:272
+Resize window (mouse) -> Super+mouse:273
+Move window (keyboard) -> Super+Z
+Resize window (keyboard)  -> Super+X
+Toggle window split direction -> Super+J

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<layout>
+	<include src="theme.xml"/>
+  <theme>
+    <var key="_panel_icon" value="/home/proto/.config/wayvr/theme/gui/assets/sensors.svg"/>
+  </theme>
+  <elements>
+		<rectangle id="rootrect" macro="decorative_rect" gap="16">
+			<div flex_direction="column">
+				<div flex_direction="row" padding="16" gap="16">
+      <div flex_direction="column">
+        <label id="gpuheader" text="GPU:" align="center"/>
+        <label id="vram" text="hi iam hardware stats"/>
+        <label id="mem" text="hi iam hardware stats"/>
+        <label id="junc" text="hi iam hardware stats"/>
+        <label id="gpu" text="hi iam hardware stats"/>
+      </div>
+      <div flex_direction="column">
+        <label id="cpuheader" text="CPU:" align="center"/>
+        <label id="tctl" text="hi iam hardware stats"/>
+      </div>
+		</div>
+		<div flex_direction="row">
+		 <div flex_direction="column">
+        <label id="topheader" text="TOP:" align="center"/>
+        <label id="top" text="hi iam hardware stats"/>
+			</div>
+		</div>
+		<div id="startbutton">
+			<Button text="hit me to start listening" macro="button_style" _press="::ShellExec $HOME/.config/wayvr/theme/gui/assets/hwmon.sh"/>
+		</div>
+	</div>
+    </rectangle>
+  </elements>
+</layout>

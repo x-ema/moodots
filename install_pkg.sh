@@ -75,7 +75,12 @@ paru -S \
   vesktop-bin \
   wayvnc \
   wikiman \
-  winetricks
+  winetricks \
+  amdsmi \
+  monado-git \
+  xrizer-git \
+  wayvr-git \
+  playerctl
 
 echo "Installing packages via flatpak..."
 flatpak install org.blender.Blender

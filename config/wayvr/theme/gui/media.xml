@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<layout>
+  <include src="theme.xml"/>
+  <theme>
+    <var key="_panel_icon" value="/usr/share/icons/breeze-dark/actions/22/tools-media-optical-burn-image-symbolic.svg"/>
+  </theme>
+  <elements>
+		<rectangle macro="decorative_rect" id="mediacontrols" padding="32" gap="0"> 
+      <div flex_direction="column">
+        <div flex_direction="row">
+					<Button macro="media_button_style"  tooltip="play/pause" _press="::ShellExec playerctl play-pause">
+            <sprite height="~media_icon_size" width="~media_icon_size" src="/usr/share/icons/Papirus-Dark/24x24/actions/media-playback-pause.svg" color="~media_icon_color"/>
+          </Button>
+          <Button macro="media_button_style" tooltip="volume down" _press="::ShellExec playerctl volume 0.05-">
+            <sprite height="~media_icon_size" width="~media_icon_size"  src="/usr/share/icons/Papirus-Dark/24x24/actions/audio-volume-medium.svg" color="~media_icon_color"/>
+          </Button>
+          <Button macro="media_button_style" tooltip="volume up" _press="::ShellExec playerctl volume 0.05+">
+            <sprite height="~media_icon_size" width="~media_icon_size"  src="/usr/share/icons/Papirus-Dark/24x24/actions/audio-volume-high.svg" color="~media_icon_color"/>
+          </Button>
+          <Button macro="media_button_style" tooltip="shuffle toggle" _press="::ShellExec playerctl shuffle Toggle">
+            <sprite height="~media_icon_size" width="~media_icon_size" src="/usr/share/icons/Papirus-Dark/24x24/actions/media-playlist-shuffle.svg"  color="~media_icon_color"/>
+          </Button>
+        </div>
+        <div flex_direction="row">
+          <div flex_direction="column">
+            <Button macro="media_button_style"  tooltip="backward -10" _press="::ShellExec playerctl position 10-">
+              <sprite height="~media_icon_size" width="~media_icon_size" src="/usr/share/icons/Papirus-Dark/24x24/actions/media-seek-backward.svg" color="~media_icon_color"/>
+            </Button>
+            <Button macro="media_button_style" tooltip="forward +10" _press="::ShellExec playerctl position 10+">
+              <sprite height="~media_icon_size" width="~media_icon_size" src="/usr/share/icons/Papirus-Dark/24x24/actions/media-seek-forward.svg" color="~media_icon_color"/>
+            </Button>
+          </div>
+          <div flex_direction="column">
+            <image id="songicon" src="/tmp/wayvrsongicon" round="25" width="100" height="100"/>
+          </div>
+          <div flex_direction="column">
+            <Button macro="media_button_style" tooltip="previous" _press="::ShellExec playerctl previous">
+              <sprite  height="~media_icon_size" width="~media_icon_size" src="/usr/share/icons/Papirus-Dark/24x24/actions/media-skip-backward.svg" color="~media_icon_color"/>
+            </Button>
+            <Button macro="media_button_style"  tooltip="skip" _press="::ShellExec playerctl next">
+              <sprite height="~media_icon_size" width="~media_icon_size" src="/usr/share/icons/Papirus-Dark/24x24/actions/media-skip-forward.svg" color="~media_icon_color"/>
+            </Button>
+          </div>
+        </div>
+				<label id="songname" text="hai" align="center" wrap="1" max_width="216"/>
+				<div id="listener">
+					<Button macro="button_style" min_width="50" text="hit me to start listening" _press="::ShellExec $HOME/.config/wayvr/theme/gui/assets/songname.sh"/>
+				</div>
+      </div>
+    </rectangle>
+  </elements>
+</layout>

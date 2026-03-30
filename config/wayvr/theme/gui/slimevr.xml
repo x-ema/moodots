@@ -1,0 +1,22 @@
+<layout>
+	<include src="theme.xml"/>
+  <elements>
+	       
+		<rectangle id="slimerootrect" macro="decorative_rect" padding_top="8" width="216" height="216" flex_direction="column" gap="8" align_items="center" >
+			<div flex_direction="row" >
+              <SlimeVRButton tooltip="Full reset" event="::ShellExec $HOME/.config/wayvr/theme/gui/assets/slimevr/fullreset.sh" icon="/home/proto/.config/wayvr/theme/gui/assets/slimevr/fullreset.svg"/>
+              <SlimeVRButton tooltip="Yaw reset" event="::ShellExec $HOME/.config/wayvr/theme/gui/assets/slimevr/yawreset.sh" icon="/home/proto/.config/wayvr/theme/gui/assets/slimevr/yawreset.svg"/>
+							<SlimeVRButton tooltip="Mounting reset" event="::ShellExec $HOME/.config/wayvr/theme/gui/assets/slimevr/mountingreset.sh" icon="/home/proto/.config/wayvr/theme/gui/assets/slimevr/mountingreset.svg"/>
+							<SlimeVRButton tooltip="Pause tracking" event="::ShellExec $HOME/.config/wayvr/theme/gui/assets/slimevr/pause.sh" icon="/usr/share/icons/Papirus-Dark/24x24/actions/media-playback-pause.svg"/>
+						</div>
+						<div flex_direction="row">
+							<rectangle macro="decorative_rect" width="100%" height="100%">
+
+							</rectangle>
+						</div>
+            </rectangle>
+        
+
+  </elements>
+</layout>
+
