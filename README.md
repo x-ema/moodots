@@ -9,3 +9,8 @@ Wallpapers -> ~/.config/hypr/wallapers/
 ```
 git clone https://github.com/x-ema/moodots ~/moodots
 ```
+
+Todo:
+- refine starship config 
+- waybar config 
+- implement pywal
