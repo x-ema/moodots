@@ -12,7 +12,8 @@ makepkg -si
 cd ~
 rm -rf paru 
 
-paru -S --needed bat \
+paru -S --needed \
+bat \
 btop \
 fastfetch \
 mpv \
@@ -25,10 +26,16 @@ nvchad-git \
 reflector \
 tailscale \
 ncdu \
-rofi \
 kitty \
 python-pywal \
 eza \
 starship \
 otf-firamono-nerd \
-ttf-nerd-fonts-symbols 
+ttf-nerd-fonts-symbols \
+waybar \
+hyprpicker \
+blueman \
+bluez \
+swaync \
+walker \
+awww
