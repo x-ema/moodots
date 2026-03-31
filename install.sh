@@ -18,8 +18,8 @@ btop \
 fastfetch \
 mpv \
 hyprland \
-hyprlock \ 
-hypridle \ 
+hyprlock \
+hypridle \
 firefox \
 mommy \
 nvchad-git \
@@ -38,4 +38,7 @@ blueman \
 bluez \
 swaync \
 walker \
-awww
+awww \
+elephant-all-bin
+
+elephant servive enable
