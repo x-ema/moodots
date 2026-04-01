@@ -41,6 +41,8 @@ walker \
 awww \
 elephant-all-bin \
 uwsm \
-libnewt
+libnewt \
+npm \
+unzip
 
 elephant servive enable
