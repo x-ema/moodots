@@ -39,6 +39,8 @@ bluez \
 swaync \
 walker \
 awww \
-elephant-all-bin
+elephant-all-bin \
+uwsm \
+libnewt
 
 elephant servive enable
