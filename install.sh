@@ -28,6 +28,7 @@ tailscale \
 ncdu \
 kitty \
 python-pywal \
+python-pywalfox \
 eza \
 starship \
 otf-firamono-nerd \
@@ -48,4 +49,5 @@ unzip
 cp ~/moodots/config/* ~/.config/ -R
 
 elephant servive enable
+systemctl --user enable --now elephant.service
 systemctl --user enable waybar.service

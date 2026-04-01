@@ -15,7 +15,7 @@
                 "empty": ""
             },
             "persistent-workspaces": {
-                "*": [ 1,2,3,4,5 ]
+                "*": [ 1 ]
             }
         },
         "custom/notification": {
@@ -39,25 +39,25 @@
             }
         },
         "network": {
-            "format-wifi": "",
-            "format-ethernet":"",
-            "format-disconnected": "",
-            "tooltip-format-disconnected": "Error",
-            "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
-            "tooltip-format-ethernet": "{ifname} 🖧 ",
+            "format-wifi": "  ",
+            "format-ethernet":"  ",
+            "format-disconnected": "  ",
+            "tooltip-format-disconnected": " Error ",
+            "tooltip-format-wifi": " {essid} ({signalStrength}%)  ",
+            "tooltip-format-ethernet": " {ifname} 🖧  ",
             "on-click": "kitty -c ~/.cache/wal/colors-kitty.conf -e nmtui"
         },
         "bluetooth": {
-            "format-on": "󰂯",
-            "format-off": "BT-off",
-            "format-disabled": "󰂲",
+            "format-on": " 󰂯 ",
+            "format-off": " BT-off ",
+            "format-disabled": " 󰂲 ",
             "format-connected-battery": "{device_battery_percentage}% 󰂯",
-            "format-alt": "{device_alias} 󰂯",
-            "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-            "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-            "tooltip-format-enumerate-connected": "{device_alias}\n{device_address}",
-            "tooltip-format-enumerate-connected-battery": "{device_alias}\n{device_address}\n{device_battery_percentage}%",
-            "on-click-right": "blueman-manager",
+            "format-alt": " {device_alias} 󰂯 ",
+            "tooltip-format": " {controller_alias}\t{controller_address}\n\n{num_connections} connected ",
+            "tooltip-format-connected": " {controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate} ",
+            "tooltip-format-enumerate-connected": " {device_alias}\n{device_address} ",
+            "tooltip-format-enumerate-connected-battery": " {device_alias}\n{device_address}\n{device_battery_percentage}% ",
+            "on-click-right": " blueman-manager ",
         }, 
         "battery": {
             "interval":30,
@@ -80,7 +80,7 @@
             ],
         },
         "custom/pacman": {
-            "format": "󰅢 {}",
+            "format": "󰅢   {}",
             "interval": 30,   
             "exec": "checkupdates | wc -l",
             "exec-if": "exit 0",
@@ -103,7 +103,7 @@
                 "transition-to-left": true,
                 "click-to-reveal": true
             },
-            "modules": ["custom/expand", "custom/colorpicker","cpu","memory","temperature","custom/endpoint"],
+            "modules": ["custom/expand","cpu","memory","custom/endpoint"],
         },
         "custom/colorpicker": {
             "format": "{}",
@@ -114,15 +114,11 @@
             "signal": 1
         },
         "cpu": {
-            "format": "󰻠",
+            "format": " 󰻠 ",
             "tooltip": true
         },
         "memory": {
-            "format": ""
-        },
-        "temperature": {
-            "critical-threshold": 80,
-            "format": "",
+            "format": "  "
         },
         "tray": {
             "icon-size": 14,
