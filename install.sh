@@ -45,4 +45,7 @@ libnewt \
 npm \
 unzip
 
+cp ~/moodots/config/* ~/.config/ -R
+
 elephant servive enable
+systemctl --user enable waybar.service
