@@ -1,0 +1,45 @@
+#https://walkerlauncher.com/docs/configuration
+
+theme = "moo"
+
+
+[shell]
+anchor_top = true
+
+[[providers.prefixes]]
+prefix = ";"
+provider = "providerlist"       # Provider switcher
+
+[[providers.prefixes]]
+prefix = ">"
+provider = "runner"             # Command runner
+
+[[providers.prefixes]]
+prefix = "/"
+provider = "files"              # File browser
+
+[[providers.prefixes]]
+prefix = "."
+provider = "symbols"            # Symbol picker
+
+[[providers.prefixes]]
+prefix = "!"
+provider = "todo"               # Todo list
+
+[[providers.prefixes]]
+prefix = "="
+provider = "calc"               # Calculator
+
+[[providers.prefixes]]
+prefix = "@"
+provider = "websearch"          # Web search
+
+[[providers.prefixes]]
+prefix = ":"
+provider = "clipboard"          # Clipboard history
+
+# Custom menu prefix
+#[[providers.prefixes]]
+#prefix = "+"
+#provider = "menus:mymenu"       # Your custom menu
+
