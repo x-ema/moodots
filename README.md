@@ -14,3 +14,6 @@ Todo:
 - refine starship config 
 - waybar config 
 - implement pywal
+    - btop 
+    - firefox 
+    - dolphin
