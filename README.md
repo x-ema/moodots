@@ -17,3 +17,4 @@ Todo:
     - btop 
     - firefox 
     - dolphin
+- add script/cmd to change wallpaper via awww and trigger all the pywal color changes

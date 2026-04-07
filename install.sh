@@ -38,13 +38,13 @@ hyprpicker \
 blueman \
 bluez \
 swaync \
-walker \
 awww \
-elephant-all-bin \
 uwsm \
 libnewt \
 npm \
-unzip
+unzip \
+quickshell \
+qt5
 
 cp ~/moodots/config/* ~/.config/ -R
 
