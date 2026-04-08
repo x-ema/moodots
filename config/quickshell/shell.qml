@@ -4,6 +4,7 @@ import Quickshell.Widgets
 import Quickshell.Wayland
 import Quickshell.Hyprland
 import QtQuick
+import QtQuick.Effects
 
 ShellRoot {
   Variants {
@@ -12,7 +13,7 @@ ShellRoot {
       PanelWindow {
         required property var modelData
         screen: modelData
-        focusable: true
+        focusable: false
         WlrLayershell.layer: WlrLayer.Bottom
         WlrLayershell.keyboardFocus: WlrKeyboardFocus.None
         color: "transparent"
@@ -23,49 +24,68 @@ ShellRoot {
           right: true
         }
         PanelWindow {
+          id: topBar
+          exclusionMode: ExclusionMode.Auto
+          height: 30
+          width: screen.width
+          focusable: false
+          color: white
+          anchors {
+            top: true
+            left: true
+            right: true
+          }
+        }
+        PanelWindow {
           id: rootPanel
-          exclusionMode: exclusionMode.Ignore
+          exclusionMode: ExclusionMode.Ignore
           implicitHeight: screen.height 
           implicitWidth: screen.width 
           color: "transparent"
-          focusable: true
+          focusable: false
           anchors {
             top: true
             bottom: true
             left: true
             right: true
           }
-        }
-        PanelWindow {
-          id: testrect
-          color: "transparent"
-          focusable: false
-          anchors {
-            top: true
-            bottom: true 
-            left: true
-            right: true
-          }
           Rectangle {
-            color: "transparent"
-            border {
-              color: "white"
-              width: 20
-            }
-            radius: 20.0
-            width: 500
-            height: 200
-            ClippingRectangle {
-              color: "red"
-              radius: 10
-              width: 300
-              height: 150
-              anchors.centerIn: parent
-            }
-          }
+            anchors.fill: parent
+            color: "red"
+            layer.enabled: true
+            layer.effect: MultiEffect {
+              maskSource: mask 
+              maskEnabled: true 
+              maskInverted: true
+              maskThresholdMin: 0.5
+              maskSpreadAtMin:1
 
+            }
+            Item {
+              id: mask
+
+              anchors.fill: parent
+              layer.enabled: true
+              visible: false
+
+              Rectangle {
+                id: maskInner
+                anchors {
+                  fill: parent 
+                  margins: screen.height*0.01
+                  
+                  topMargin: screen.height*0.03
+
+                }
+                radius: 20
+                color: "blue"
+              }
+            }
+
+          }
         }
       }
     }
   }
-}  
+}
+  
