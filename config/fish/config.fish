@@ -1,8 +1,3 @@
-set -g fish_greeting
-
-if status is-interactive
-    starship init fish | source
-end
 
 function fish_right_prompt
     mommy -1 -s $status
