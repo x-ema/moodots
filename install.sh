@@ -1,7 +1,9 @@
 #!/bin/fish 
 
+# assumes that arch has already been installed and this script isnt running inside the install media, ie make sure network is working 
+
 #to be installed during arch install
-#nvim, sudo, networkmanager, git, fish
+#nvim, sudo, networkmanager, git, fish, amd-ucode (if amd), systemdboot (dont need to install but use this bootmgr, usually set timeout to 0, space will bring it up if you need it)
 
 sudo pacman -Syy 
 sudo pacman -Syu
@@ -11,6 +13,10 @@ cd paru
 makepkg -si
 cd ~
 rm -rf paru 
+paru -S --needed reflector
+
+cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.old
+reflector --score 50 --fastest 5 --sort rate --verbose > /etc/pacman.d/mirrorlist
 
 paru -S --needed \
 bat \
@@ -24,12 +30,18 @@ reflector \
 tailscale \
 ncdu \
 kitty \
-uwsm \
-libnewt \
-npm \
 unzip \
 quickshell \
-qt5
+pipewire-jack \
+yazi \
+nerd-fonts \
+ttf-input-nerd \
+hyprland \
+hyprsunset \
+xdg-desktop-portal-hyprland \
+xdg-desktop-portal-gtk \
+hyprshutdown \
+starship
 
 
 cat config/fish/config.fish >> ~/.config/fish/config.fish
