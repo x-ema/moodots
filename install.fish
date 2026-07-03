@@ -35,10 +35,16 @@ reflector \
 tailscale \
 ncdu \
 unzip \
-yazi 
+yazi \
+pipewire-jack \
+ttf-input-nerd \
+npm \
+wget
 
 # Install end-4's hypr dots
-bash <(curl -s https://ii.clsty.link/get)
+wget https://ii.clsty.link/get -O iiInstall.sh 
+sh iiInstall.sh 
+rm iiInstall.sh
 
 # Remove the junk from the hypr dots that we dont want
 paru -Rcns \
@@ -47,4 +53,7 @@ dolphin
 
 #cat config/fish/config.fish >> ~/.config/fish/config.fish
 cp ~/moodots/config/* ~/.config/ -R
+
+echo "You will need to run :MasonInstallAll inside nvim to get everything setup"
+echo "Check /etc/pacman.conf for the line 'IgnoreGroup=illogical-impulse' if its not there add it!"
 
