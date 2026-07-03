@@ -49,6 +49,44 @@ hl.config({
   }
 })
 
+-- Window Rules 
+
+hl.window_rule({
+  name = "Blur Enable",
+  match = {
+    class = ".*"
+  },
+  no_blur = false
+})
+
+hl.window_rule({
+  name = "Enable Blur (xwayland)",
+  match = {
+    class = "^()$",
+    title = "^()$"
+  },
+  no_blur = false
+})
+
+hl.window_rule({
+  name = "Blender file view resize",
+  match = {
+    class = "^(blender)$"
+  },
+  size = { "(monitor_w*0.8)", "(monitor_h*0.7)" },
+  move = { "monitor_w*0.1", "monitor_h*0.15" }
+})
+
+hl.window_rule({
+  name = "Gnome Popup Window Resize",
+  match = {
+    float = true,
+    class = "^org.gnome.*$"
+  },
+  size = { "(monitor_w*0.8)", "(monitor_h*0.7)" },
+  move = { "monitor_w*0.1", "monitor_h*0.15" }
+})
+
 -- Unbinds
 
 local unbinds = {
@@ -77,7 +115,8 @@ local unbinds = {
   "SUPER + T",
   "SUPER + C",
   "SUPER + E",
-  "SUPER + mouse:274"
+  "SUPER + mouse:274",
+  "CTRL + RETURN"
 
 }
 
@@ -95,10 +134,7 @@ for _,key in pairs(unbinds) do
 end
 
 -- Binds
-hl.bind("SUPER + 1", hl.dsp.focus({ workspace = "r-1" }), { description = "Workspace: Focus Left" })
-hl.bind("SUPER + 2", hl.dsp.focus({ workspace = "r+1" }), { description = "Workspace: Focus Right" })
-hl.bind("SUPER + SHIFT + 1", hl.dsp.window.move({ workspace = "r-1", follow = true }, { description = "Window: Move to previous workspace" }))
-hl.bind("SUPER + SHIFT + 2", hl.dsp.window.move({ workspace = "r+1", follow = true }, { description = "Window: Move to next workspace" }))
+
 hl.bind("SUPER + T", hl.dsp.exec_cmd(terminal), { description = "Application: Terminal" })
 hl.bind("SUPER + F", hl.dsp.exec_cmd(browser), { description = "Application: Web Browser"})
 hl.bind("SUPER + C", hl.dsp.exec_cmd(editor), { description = "Application: Text Editor"})
@@ -106,7 +142,7 @@ hl.bind("SUPER + E", hl.dsp.exec_cmd(file_browser), { description = "Application
 hl.bind("ALT + RETURN", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }), { description = "Window: Toggle Fullscreen" })
 
 -- Vim like movement for focusing windows + moving
-local focusdir = { {"H","l"}, {"J","d"}, {"K","u"}, {"L","r"} }
+local focusdir = { {"H","l"}, {"J","d"}, {"K","u"}, {"L","r"}, {"1", "l"}, {"2", "r"} }
 for _,dir in pairs(focusdir) do 
   hl.bind("SUPER + "..dir[1], hl.dsp.focus({ direction = dir[2] }), { description = "Window: Focus '"..dir[2].."'" })
   hl.bind("SUPER + SHIFT + "..dir[1], hl.dsp.window.move({ direction = dir[2] }), { description = "Window: Move '"..dir[2].."'" })
@@ -114,4 +150,7 @@ end
 
 hl.bind("SUPER + mouse_left", hl.dsp.focus({ direction = "l" }), { description = "Layout: Scroll Left" })
 hl.bind("SUPER + mouse_right", hl.dsp.focus({ direction = "r" }), { description = "Layout: Scroll Right" })
-hl.bind("SUPER + code:274", hl.dsp.layout("colresize +conf"), "Window: Auto Resize Window")
+hl.bind("SUPER + code:274", hl.dsp.layout("colresize +conf"), { description = "Window: Maximize Window" })
+hl.bind("CTRL + RETURN", hl.dsp.layout("colresize +conf"), { description = "Window: Maximize Window"})
+
+hl.bind("SUPER + 0", hl.dsp.exec_cmd("fish ~/.config/hypr/custom/scripts/steam-mode-switch.fish"), { description = "Steam: Toggle Big Picture"})
