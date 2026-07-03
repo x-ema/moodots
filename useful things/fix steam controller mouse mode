@@ -1,0 +1,7 @@
+https://github.com/Supreeeme/extest
+
+essentially wayland is "secure" and doesnt want to give mouse control over to steam, this is correct but not desired, extest solves this?
+
+LD_PRELOAD=/usr/lib32/libextest.so steam --silent
+
+launch steam like that and it should fix it after install
