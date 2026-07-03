@@ -25,9 +25,8 @@ hl.config({
     layout = "scrolling"
   },
   decoration = {
-    rounding = 20,
     active_opacity = 1,
-    inactive_opacity = 0.5,
+    inactive_opacity = 0.7,
 --    fullscreen_opaticy = 1,
     blur = {
       enabled = true,
@@ -37,7 +36,6 @@ hl.config({
 --      enabled = true,
 --      samples = 7
 --      Motion blur not working for now??? "unknown config key decoration.motion_blur.enabled samples etc"
-    }
   },
   input = {
     touchpad = {
@@ -45,6 +43,9 @@ hl.config({
       natural_scroll = true, 
       clickfinger_behavior = true
     }
+  },
+  scrolling = {
+    explicit_column_widths = "0.5,1.0"
   }
 })
 
@@ -75,7 +76,8 @@ local unbinds = {
   "SUPER + mouse_left",
   "SUPER + T",
   "SUPER + C",
-  "SUPER + E"
+  "SUPER + E",
+  "SUPER + mouse:274"
 
 }
 
@@ -110,5 +112,6 @@ for _,dir in pairs(focusdir) do
   hl.bind("SUPER + SHIFT + "..dir[1], hl.dsp.window.move({ direction = dir[2] }), { description = "Window: Move '"..dir[2].."'" })
 end
 
-hl.bind("SUPER + mouse_left", hl.dsp.layout("move +100"), { description = "Layout: Scroll Left" })
-hl.bind("SUPER + mouse_right", hl.dsp.layout("move -100"), { description = "Layout: Scroll Right" })
+hl.bind("SUPER + mouse_left", hl.dsp.focus({ direction = "l" }), { description = "Layout: Scroll Left" })
+hl.bind("SUPER + mouse_right", hl.dsp.focus({ direction = "r" }), { description = "Layout: Scroll Right" })
+hl.bind("SUPER + code:274", hl.dsp.layout("colresize +conf"), "Window: Auto Resize Window")
