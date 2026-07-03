@@ -18,15 +18,6 @@ hl.on("hyprland.shutdown", function()
     -- os.execute("pkill wallpaperthing; systemctl --user stop hyprland-session.target && sleep 0.1")
 end)
 
--- Monitors
-
-hl.monitor({
-  output = "",
-  mode = "preferred",
-  position = "auto",
-  scale = 1
-})
-
 -- Layout Config
 
 hl.config({
@@ -57,23 +48,60 @@ hl.config({
   }
 })
 
--- Binds
+-- Unbinds
 
+local unbinds = {
+  "CTRL + SUPER + Left",
+  "CTRL + SUPER + Right",
+  "SUPER + Page_Down",
+  "SUPER + Page_Up",
+  "SUPER + F",
+  "SUPER + ALT + F",
+  "SUPER + D",
+  "SUPER + ALT + Space",
+  "SUPER + A",
+  "SUPER + ALT + A",
+  "SUPER + SUPER_L",
+  "SUPER + SUPER_R",
+  "SUPER + W",
+  "SUPER + RETURN",
+  "SUPER + code:19",
+  "SUPER + S",
+  "SUPER + H",
+  "SUPER + J",
+  "SUPER + K",
+  "SUPER + L",
+  "SUPER + mouse_right",
+  "SUPER + mouse_left",
+  "SUPER + T",
+  "SUPER + C",
+  "SUPER + E"
+
+}
+
+for i = 0,9 do 
+  table.insert(unbinds, "SUPER + "..i)
+  table.insert(unbinds, "SUPER + SHIFT + .."..i)
+  table.insert(unbinds, "SUPER + ALT + "..i)
+end
+for i = 10,19 do 
+  table.insert(unbinds, "SUPER + code:"..i)
+end
+
+for _,key in pairs(unbinds) do 
+  hl.unbind(key)
+end
+
+-- Binds
 hl.bind("SUPER + 1", hl.dsp.focus({ workspace = "r-1" }), { description = "Workspace: Focus Left" })
 hl.bind("SUPER + 2", hl.dsp.focus({ workspace = "r+1" }), { description = "Workspace: Focus Right" })
 hl.bind("SUPER + SHIFT + 1", hl.dsp.window.move({ workspace = "r-1", follow = true }, { description = "Window: Move to previous workspace" }))
 hl.bind("SUPER + SHIFT + 2", hl.dsp.window.move({ workspace = "r+1", follow = true }, { description = "Window: Move to next workspace" }))
 hl.bind("SUPER + T", hl.dsp.exec_cmd(terminal), { description = "Application: Terminal" })
-hl.bind("SUPER + Q", hl.dsp.window.close(), { description = "Window: Close" })
---Launcher/rofi replacement bind
---hl.bind("SUPER + A", )
 hl.bind("SUPER + F", hl.dsp.exec_cmd(browser), { description = "Application: Web Browser"})
 hl.bind("SUPER + C", hl.dsp.exec_cmd(editor), { description = "Application: Text Editor"})
 hl.bind("SUPER + E", hl.dsp.exec_cmd(file_browser), { description = "Application: File Browser"})
 hl.bind("ALT + RETURN", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }), { description = "Window: Toggle Fullscreen" })
-
-hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), {mouse = true, description = "Window: Move"})
-hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), {mouse = true, description = "Window: Resize" })
 
 -- Vim like movement for focusing windows + moving
 local focusdir = { {"H","l"}, {"J","d"}, {"K","u"}, {"L","r"} }

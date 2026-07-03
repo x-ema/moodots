@@ -1,8 +1,18 @@
 if status is-interactive
   set fish_greeting
+  
+  # Use starship
+  function starship_transient_prompt_func
+    starship module character
+  end
+  if test "$TERM" != "linux"
+    starship init fish | source
+    enable transience
+  end
 
-  function fish_right_prompt
-      mommy -1 -s $status
+  # Colors 
+  if test -f ~/.local/state/quickshell/user/generated/terminal/sequences.txt 
+    cat ~/.local/state/quickshell/user/generated/terminal/sequences.txt 
   end
 
   #Aliases to make life easy :)
@@ -37,6 +47,14 @@ if status is-interactive
   # Always mkdir a path (this doesn't inhibit functionality to make a single dir)
   abbr mkdir 'mkdir -p'
 
-  # Use starship
-  starship init fish | source
+  alias clear "printf '\033[2J\033[3J\033[1;1H'"
+  alias celar "printf '\033[2J\033[3J\033[1;1H'"
+  alias claer "printf '\033[2J\033[3J\033[1;1H'"
+  alias q 'qs -c ii'
 end
+
+function fish_right_prompt
+  mommy -1 -s $status
+end
+
+source ~/.config/fish/auto-Hypr.fish

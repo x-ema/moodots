@@ -56,4 +56,5 @@ cp ~/moodots/config/* ~/.config/ -R
 
 echo "You will need to run :MasonInstallAll inside nvim to get everything setup"
 echo "Check /etc/pacman.conf for the line 'IgnoreGroup=illogical-impulse' if its not there add it!"
+echo "If you're updating and you dont need any of your old config files you can delete ~/ii-original-dots-backup/"
 
