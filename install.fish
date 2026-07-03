@@ -29,24 +29,21 @@ fastfetch \
 mpv \
 firefox \
 mommy \
+neovim \
 nvchad-git \
 reflector \
 tailscale \
 ncdu \
-kitty \
 unzip \
-quickshell \
-pipewire-jack \
-yazi \
-nerd-fonts \
-ttf-input-nerd \
-hyprland \
-hyprsunset \
-xdg-desktop-portal-hyprland \
-xdg-desktop-portal-gtk \
-hyprshutdown \
-starship
+yazi 
 
+# Install end-4's hypr dots
+bash <(curl -s https://ii.clsty.link/get)
+
+# Remove the junk from the hypr dots that we dont want
+paru -Rcns \
+translate-shell \
+dolphin
 
 #cat config/fish/config.fish >> ~/.config/fish/config.fish
 cp ~/moodots/config/* ~/.config/ -R
