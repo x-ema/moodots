@@ -151,6 +151,7 @@ end
 hl.bind("SUPER + mouse_left", hl.dsp.focus({ direction = "l" }), { description = "Layout: Scroll Left" })
 hl.bind("SUPER + mouse_right", hl.dsp.focus({ direction = "r" }), { description = "Layout: Scroll Right" })
 hl.bind("SUPER + code:274", hl.dsp.layout("colresize +conf"), { description = "Window: Maximize Window" })
-hl.bind("CTRL + RETURN", hl.dsp.layout("colresize +conf"), { description = "Window: Maximize Window"})
+hl.bind("CTRL + RETURN", hl.dsp.layout("colresize +conf"), { description = "Window: Maximize Window" })
 
-hl.bind("SUPER + 0", hl.dsp.exec_cmd("fish ~/.config/hypr/custom/scripts/steam-mode-switch.fish"), { description = "Steam: Toggle Big Picture"})
+hl.bind("SUPER + 0", hl.dsp.exec_cmd("fish ~/.config/hypr/custom/scripts/steam-mode-switch.fish"), { description = "Steam: Toggle Big Picture" })
+hl.bind("SUPER + 9", hl.dsp.exec_cmd("fish ~/.config/hypr/custom/scripts/check_battery_touchpad.fish"), { description = "Touchpad: Show battery level" })
