@@ -19,3 +19,4 @@ Todo:
     - dolphin
 - add script/cmd to change wallpaper via awww and trigger all the pywal color changes
 - File selector opens wayyyyyy too big sometimes (mainly too tall)
+- Add disabling zswap kernel module and enabling zram by default
